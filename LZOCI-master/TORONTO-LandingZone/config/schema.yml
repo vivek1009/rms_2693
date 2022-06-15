@@ -150,7 +150,7 @@ variables:
     enum:
       - "CREATE"
       - "USE"
-    required: true
+    required: false
     default: "CREATE"
     visible: env_advanced_options
 
@@ -159,7 +159,7 @@ variables:
     title: "Use existing groups?"
     description: "Whether existing groups should be reused for this Landing Zone. If unchecked, one set of groups is created. If checked, existing group names must be provided and this set will be able to manage resources in this Landing Zone."
     default: false
-    required: true
+    required: false
     visible: env_advanced_options
   
   existing_iam_admin_group_name:
@@ -458,7 +458,7 @@ variables:
       type: string
     uniqueItems: true
     title: "Network Admin Email Endpoints"
-    required: true
+    required: false
     description: "List of email addresses for all network related notifications. (Type an email address and hit enter to enter multiple values)"
 
   security_admin_email_endpoints:
@@ -467,14 +467,14 @@ variables:
       type: string
     uniqueItems: true
     title: "Security Admin Email Endpoints"
-    required: true
+    required: false
     description: "List of email addresses for all security related notifications. (Type an email address and hit enter to enter multiple values)"
 
   cloud_guard_configuration_status:
     type: enum
     title: "Cloud Guard Configuration Status"
     description: "Determines whether Cloud Guard should be enabled in the tenancy. If 'ENABLE', a target is created for the Root compartment."
-    required: true
+    required: false
     enum:
       - ENABLE
       - DISABLE
@@ -482,7 +482,7 @@ variables:
   # Service Connector Hub For Audit Logs - Variables
   create_service_connector_audit:
     type: boolean
-    required: true
+    required: false
     title: "Create Service Connector Hub for Audit Logs (This might incur some cost)"
     description: "Create Service Connector Hub for Audit logs. Costs associated are due to storing objects in Object Storage, Streaming or Function invocations."
     default: false
@@ -559,7 +559,7 @@ variables:
   # Service Connector Hub For VCN Flow Logs - Variables
   create_service_connector_vcnFlowLogs:
     type: boolean
-    required: true
+    required: false
     title: "Create Service Connector Hub for VCN Flow Logs (This might incur some cost)"
     description: "Create Service Connector Hub for VCN Flow logs. Costs associated are due to storing objects in Object Storage, Streaming or Function invocations."
     default: false
@@ -637,7 +637,7 @@ variables:
     type: boolean
     title: "Enable Vulnerability Scanning?"
     description: "Whether Vulnerability Scanning should be enabled. If checked, a scanning recipe is created and scanning targets are created for each Landing Zone compartment."
-    default: true
+    default: false
 
   vss_scan_schedule:
     type: enum
